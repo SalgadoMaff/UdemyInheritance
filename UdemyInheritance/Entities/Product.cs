@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace UdemyInheritance.Entities
 
         public virtual string priceTag()
         {
-            return $"{this.Name} ${this.Price}";
+            return $"{this.Name} ${this.Price.ToString("F2",CultureInfo.InvariantCulture)}";
         }
     }
 }

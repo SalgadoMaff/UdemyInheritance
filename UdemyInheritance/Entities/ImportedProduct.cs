@@ -20,12 +20,17 @@ namespace UdemyInheritance.Entities
             this.customsFee = customsFee;
         }
 
+
+        public double totalPrice()
+        {
+            return Price + customsFee;
+        }
         public override string priceTag()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(this.Name);
             sb.Append(" $");
-            sb.Append($"{this.Price.ToString("F2", CultureInfo.InvariantCulture)} ");
+            sb.Append($"{this.totalPrice().ToString("F2", CultureInfo.InvariantCulture)} ");
             sb.Append($"(Customs fee: ${this.customsFee.ToString("F2", CultureInfo.InvariantCulture)})");
             return sb.ToString();
         }
